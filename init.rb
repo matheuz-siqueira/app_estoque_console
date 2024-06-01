@@ -1,30 +1,11 @@
 require_relative 'display/menu'
 require_relative 'display/operacoes_de_tela'
-require_relative 'core/cadastrar_produto'
-require_relative 'core/listar_produtos'
-require_relative 'core/retirar_estoque'
+require_relative 'display/servicos/cadastrar_produto'
+require_relative 'display/servicos/listar_produtos'
+require_relative 'display/servicos/retirar_estoque'
+require_relative 'dominio/entidades/produto'
+require_relative 'dominio/servicos/produto_servico'
+require_relative 'infra/json_repositorio'
 
-produtos = [
-  {
-    id: 1,
-    nome: "Mouse",
-    descricacao: "Mouse gamer sem fio",
-    preco: 60.2,
-    quantidade: 10,
-  },
-  {
-    id: 2,
-    nome: "Suporte notebook",
-    descricacao: "Suporte de notebook ideal para escritório",
-    preco: 70.9,
-    quantidade: 12,
-  },
-  {
-    id: 3,
-    nome: "Monitor",
-    descricacao: "Monitor vertical Dell",
-    preco: 120.20,
-    quantidade: 6,
-  }
-]
-iniciar_menu(produtos)
+
+iniciar_menu()

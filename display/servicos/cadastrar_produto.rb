@@ -1,4 +1,4 @@
-def cadastrar_produto(produtos)
+def cadastrar_produto
   mensagem("Iniciando cadastro de produto...", true, true, 1)
   mensagem("Digite o nome do produto: ", false, false)
   nome = gets.chomp.to_s
@@ -12,16 +12,18 @@ def cadastrar_produto(produtos)
   mensagem("Digite a quantidade em estoque do produto #{verde(nome)}: ", false, false)
   quantidade = gets.to_i
 
-  last = produtos.last
-  last_id = last[:id]
+  last = ProdutoServico.todos.last
+  last_id = last.id
 
-  produtos << {
-    id: last_id + 1,
-    nome: nome,
-    descricao: descricao,
-    preco: preco,
-    quantidade: quantidade
-  }
+  p = Produto.new({
+    "id" => last_id + 1,
+    "nome" => nome,
+    "descricao" => descricao,
+    "preco" =>  preco,
+    "quantidade" => quantidade
+  })
+
+  ProdutoServico.adicionar(p)
 
   mensagem_verde("O produto #{amarelo(nome)} foi cadastrado com sucesso!", true, true, 3)
 end

@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "nome": "Mouse",
+    "descricacao": "Mouse gamer sem fio",
+    "preco": 60.2,
+    "quantidade": 10
+  },
+  {
+    "id": 2,
+    "nome": "Suporte notebook",
+    "descricacao": "Suporte de notebook ideal para escritório",
+    "preco": 70.9,
+    "quantidade": 12
+  },
+  {
+    "id": 3,
+    "nome": "Monitor",
+    "descricacao": "Monitor vertical Dell",
+    "preco": 120.2,
+    "quantidade": 6
+  },
+  {
+    "id": 4,
+    "nome": "Teste",
+    "descricao": "produto teste",
+    "preco": 10.0,
+    "quantidade": 0
+  }
+]
