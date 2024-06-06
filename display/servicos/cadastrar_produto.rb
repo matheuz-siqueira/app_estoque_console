@@ -12,7 +12,7 @@ def cadastrar_produto
   mensagem("Digite a quantidade em estoque do produto #{verde(nome)}: ", false, false)
   quantidade = gets.to_i
 
-  last = ProdutoServico.todos.last
+  last = ProdutoServico.new(JsonRepositorio, "db/produtos.json").todos.last
   last_id = last.id
 
   p = Produto.new({
@@ -23,7 +23,7 @@ def cadastrar_produto
     "quantidade" => quantidade
   })
 
-  ProdutoServico.adicionar(p)
+  ProdutoServico.new(JsonRepositorio, "db/produtos.json").adicionar(p)
 
   mensagem_verde("O produto #{amarelo(nome)} foi cadastrado com sucesso!", true, true, 3)
 end

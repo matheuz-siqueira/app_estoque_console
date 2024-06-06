@@ -6,7 +6,7 @@ def retirar_estoque
 
   table = Terminal::Table.new do |t|
     t.headings = ['ID', 'Nome', 'Quantidade']
-    ProdutoServico.todos.each do |produto|
+    ProdutoServico.new(JsonRepositorio, "db/produtos.json").todos.each do |produto|
       t.add_row [produto.id, produto.nome, produto.quantidade]
     end
   end
@@ -15,7 +15,7 @@ def retirar_estoque
   mensagem_azul("Digite o ID do produto", false, false)
   id = gets.to_i
 
-  produto = ProdutoServico.todos.find{|p| p.id == id}
+  produto = ProdutoServico.new(JsonRepositorio, "db/produtos.json").todos.find{|p| p.id == id}
 
   unless produto
     mensagem_vermelho("Produto do id #{id} não encontrado!", true, true, 3)
@@ -34,7 +34,7 @@ def retirar_estoque
     if produto.quantidade >= quantidade_retirada
       produto.quantidade -= quantidade_retirada
       mensagem_verde("Retirada realizada com sucesso", true, true, 3)
-      ProdutoServico.atualizar(produto)
+      ProdutoServico.new(JsonRepositorio, "db/produtos.json").atualizar(produto)
 
       listar_produtos
     else
